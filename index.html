@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Food-Lover</title>
- <script defer src="app.js"></script>
+  <script defer src="app.js"></script>
   <link rel="icon" type="image/png" href="images/logo.png">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
@@ -25,7 +25,7 @@
     <span class="absolute text-2xl font-semibold text-blue-500 animate-pulse">Loading...</span>
   </div> -->
   <!-- /Loading -->
-   
+
   <!-- Topbar section -->
   <div
     class="flex justify-between items-center px-[10%] bg-black/50 backdrop-blur-3xl py-0 fixed top-0 right-0 left-0 z-50  shadow-lg shadow-black/50">
@@ -56,7 +56,7 @@
         <button class="uppercase bg-yellow-500 px-6 cursor-pointer py-2.5 text-base hover:shadow-lg shadow-yellow-300
          hover:bg-yellow-600 duration-500
          font-bold rounded-full">read more <i class="ti ti-arrow-right text-xl animate-ping"></i></button>
-        <button class="uppercase bg-yellow-500 px-6 cursor-pointer py-2.5 text-base hover:shadow-lg shadow-yellow-300
+        <button data-modal class="uppercase bg-yellow-500 px-6 cursor-pointer py-2.5 text-base hover:shadow-lg shadow-yellow-300
          hover:bg-yellow-600 duration-500
          font-bold rounded-full">contact us <i
             class="ti ti-phone-call inline-block text-xl animate-bounce"></i></button>
@@ -400,7 +400,7 @@
       <button class="uppercase text-white bg-yellow-500 px-6 cursor-pointer py-2.5 text-base hover:shadow-lg shadow-yellow-300
          hover:bg-yellow-600 duration-500
          font-bold rounded-full">read more <i class="ti ti-arrow-right text-xl animate-ping"></i></button>
-      <button class="uppercase text-white bg-yellow-500 px-6 cursor-pointer py-2.5 text-base hover:shadow-lg shadow-yellow-300
+      <button data-modal class="uppercase text-white bg-yellow-500 px-6 cursor-pointer py-2.5 text-base hover:shadow-lg shadow-yellow-300
          hover:bg-yellow-600 duration-500
          font-bold rounded-full">contact us <i
           class="ti ti-phone-call inline-block text-xl animate-bounce"></i></button>
@@ -441,137 +441,153 @@
   <!-- /Foods -->
 
   <!-- Gallery -->
-  <div class=" py-14 h-[70vh] px-[10%]" style="background-image: url(images/offer-background.jpg);">
-    <div class="flex gap-4 mb-10">
-      <img class="hover:scale-105 duration-300 cursor-pointer" src="images/left.svg" alt="">
+  <div class="py-14 h-[70vh] px-[10%]" style="background-image: url(images/offer-background.jpg);">
+    <div class="flex gap-4">
+      <button id="left">
+        <img class="hover:scale-105 duration-300 cursor-pointer" src="images/left.svg" alt="">
+      </button>
       <p class="text-3xl font-bold text-white">
-        <span class="text-5xl font-bold text-yellow-500">01</span>
+        <span id="current" class="text-5xl font-bold text-yellow-500">01</span>
         <span class="relative bottom-1 text-3xl">/</span>
         <span class="relative bottom-1">06</span>
       </p>
-      <img class="hover:scale-105 duration-300 cursor-pointer" src="images/right.svg" alt="">
+      <button id="right">
+        <img class="hover:scale-105 duration-300 cursor-pointer" src="images/right.svg" alt="">
+      </button>
     </div>
 
-    <div class="flex gap-8">
-      <div class="w-1/2">
-        <img class="w-[600px] h-80 border-2 justify-start border-yellow-500 rounded-4xl object-cover"
-          src="images/gallery1.jpeg" alt="">
-      </div>
-      <div class="w-1/2">
-        <h2 class="text-4xl font-bold text-white py-4">Our Food Gallery</h2>
-        <p class="text-base font-medium text-gray-100 text-justify pb-4">Lorem ipsum, dolor sit amet consectetur
-          adipisicing elit. Quae obcaecati ea maxime esse suscipit at veritatis corporis, est dicta repellat
-          cupiditate. Cupiditate corrupti illum, necessitatibus saepe non ab placeat fugiat?</p>
-        <p class="text-base font-medium text-gray-100 text-justify">Lorem ipsum, dolor sit amet consectetur adipisicing
-          elit. Quae obcaecati ea maxime esse suscipit at veritatis corporis, est dicta repellat
-          cupiditate. Cupiditate corrupti illum, necessitatibus saepe non ab placeat fugiat?</p>
-        <button class="uppercase mt-4 text-white bg-yellow-500 px-6 cursor-pointer py-2.5 text-base hover:shadow-lg shadow-yellow-300
+    <div class="overflow-hidden w-full">
+      <div id="slider" class="flex transition-transform duration-500 ease-in-out">
+        <div class="flex min-w-full items-center h-[70vh] pb-32">
+          <div class="w-1/2 pr-8">
+            <img class="w-[600px] h-80 border-2 justify-start border-yellow-500 rounded-4xl object-cover"
+              src="images/gallery1.jpeg" alt="">
+          </div>
+          <div class="w-1/2 pl-8">
+            <h2 class="text-4xl font-bold text-white py-4">Our Food Gallery</h2>
+            <p class="text-base font-medium text-gray-100 text-justify pb-4">Lorem ipsum, dolor sit amet consectetur
+              adipisicing elit. Quae obcaecati ea maxime esse suscipit at veritatis corporis, est dicta repellat
+              cupiditate. Cupiditate corrupti illum, necessitatibus saepe non ab placeat fugiat?</p>
+            <p class="text-base font-medium text-gray-100 text-justify">Lorem ipsum, dolor sit amet consectetur
+              adipisicing pl-8
+              elit. Quae obcaecati ea maxime esse suscipit at veritatis corporis, est dicta repellat
+              cupiditate. Cupiditate corrupti illum, necessitatibus saepe non ab placeat fugiat?</p>
+            <button data-modal class="uppercase mt-4 text-white bg-yellow-500 px-6 cursor-pointer py-2.5 text-base hover:shadow-lg shadow-yellow-300
          hover:bg-yellow-600 duration-500
          font-bold rounded-full">contact us <i
-            class="ti ti-phone-call inline-block text-xl animate-bounce"></i></button>
+                class="ti ti-phone-call inline-block text-xl animate-bounce"></i></button>
+          </div>
+        </div>
+
+        <div class="flex min-w-full items-center h-[70vh] pb-32">
+          <div class="w-1/2 pr-8">
+            <img class="w-[600px] h-80 border-2 justify-start border-yellow-500 rounded-4xl object-cover"
+              src="images/gallery2.jpeg" alt="">
+          </div>
+          <div class="w-1/2 pl-8">
+            <h2 class="text-4xl font-bold text-white py-4">Delicious Dishes</h2>
+            <p class="text-base font-medium text-gray-100 text-justify pb-4">Lorem ipsum, dolor sit amet consectetur
+              adipisicing elit. Quae obcaecati ea maxime esse suscipit at veritatis corporis, est dicta repellat
+              cupiditate. Cupiditate corrupti illum, necessitatibus saepe non ab placeat fugiat?</p>
+            <p class="text-base font-medium text-gray-100 text-justify">Lorem ipsum, dolor sit amet consectetur
+              adipisicing
+              elit. Quae obcaecati ea maxime esse suscipit at veritatis corporis, est dicta repellat
+              cupiditate. Cupiditate corrupti illum, necessitatibus saepe non ab placeat fugiat?</p>
+            <button class="uppercase mt-4 text-white bg-yellow-500 px-6 cursor-pointer py-2.5 text-base hover:shadow-lg shadow-yellow-300
+         hover:bg-yellow-600 duration-500
+         font-bold rounded-full">contact us <i
+                class="ti ti-phone-call inline-block text-xl animate-bounce"></i></button>
+          </div>
+        </div>
+
+
+        <div class="flex min-w-full items-center h-[70vh] pb-32">
+          <div class="w-1/2 pr-8">
+            <img class="w-[600px] h-80 border-2 justify-start border-yellow-500 rounded-4xl object-cover"
+              src="images/gallery3.jpeg" alt="">
+          </div>
+          <div class="w-1/2 pl-8">
+            <h2 class="text-4xl font-bold text-white py-4">Amazing Experience</h2>
+            <p class="text-base font-medium text-gray-100 text-justify pb-4">Lorem ipsum, dolor sit amet consectetur
+              adipisicing elit. Quae obcaecati ea maxime esse suscipit at veritatis corporis, est dicta repellat
+              cupiditate. Cupiditate corrupti illum, necessitatibus saepe non ab placeat fugiat?</p>
+            <p class="text-base font-medium text-gray-100 text-justify">Lorem ipsum, dolor sit amet consectetur
+              adipisicing
+              elit. Quae obcaecati ea maxime esse suscipit at veritatis corporis, est dicta repellat
+              cupiditate. Cupiditate corrupti illum, necessitatibus saepe non ab placeat fugiat?</p>
+            <button class="uppercase mt-4 text-white bg-yellow-500 px-6 cursor-pointer py-2.5 text-base hover:shadow-lg shadow-yellow-300
+         hover:bg-yellow-600 duration-500
+         font-bold rounded-full">contact us <i
+                class="ti ti-phone-call inline-block text-xl animate-bounce"></i></button>
+          </div>
+        </div>
+
+        <div class="flex min-w-full items-center h-[70vh] pb-32">
+          <div class="w-1/2 pr-8">
+            <img class="w-[600px] h-80 border-2 justify-start border-yellow-500 rounded-4xl object-cover"
+              src="images/gallery4.jpeg" alt="">
+          </div>
+          <div class="w-1/2 pl-8">
+            <h2 class="text-4xl font-bold text-white py-4">Fresh Ingredients</h2>
+            <p class="text-base font-medium text-gray-100 text-justify pb-4">Lorem ipsum, dolor sit amet consectetur
+              adipisicing elit. Quae obcaecati ea maxime esse suscipit at veritatis corporis, est dicta repellat
+              cupiditate. Cupiditate corrupti illum, necessitatibus saepe non ab placeat fugiat?</p>
+            <p class="text-base font-medium text-gray-100 text-justify">Lorem ipsum, dolor sit amet consectetur
+              adipisicing
+              elit. Quae obcaecati ea maxime esse suscipit at veritatis corporis, est dicta repellat
+              cupiditate. Cupiditate corrupti illum, necessitatibus saepe non ab placeat fugiat?</p>
+            <button class="uppercase mt-4 text-white bg-yellow-500 px-6 cursor-pointer py-2.5 text-base hover:shadow-lg shadow-yellow-300
+         hover:bg-yellow-600 duration-500
+         font-bold rounded-full">contact us <i
+                class="ti ti-phone-call inline-block text-xl animate-bounce"></i></button>
+          </div>
+        </div>
+
+
+        <div class="flex min-w-full items-center h-[70vh] pb-32">
+          <div class="w-1/2 pr-8">
+            <img class="w-[600px] h-80 border-2 justify-start border-yellow-500 rounded-4xl object-cover"
+              src="images/gallery5.jpeg" alt="">
+          </div>
+          <div class="w-1/2 pl-8">
+            <h2 class="text-4xl font-bold text-white py-4">Culinary Art</h2>
+            <p class="text-base font-medium text-gray-100 text-justify pb-4">Lorem ipsum, dolor sit amet consectetur
+              adipisicing elit. Quae obcaecati ea maxime esse suscipit at veritatis corporis, est dicta repellat
+              cupiditate. Cupiditate corrupti illum, necessitatibus saepe non ab placeat fugiat?</p>
+            <p class="text-base font-medium text-gray-100 text-justify">Lorem ipsum, dolor sit amet consectetur
+              adipisicing
+              elit. Quae obcaecati ea maxime esse suscipit at veritatis corporis, est dicta repellat
+              cupiditate. Cupiditate corrupti illum, necessitatibus saepe non ab placeat fugiat?</p>
+            <button class="uppercase mt-4 text-white bg-yellow-500 px-6 cursor-pointer py-2.5 text-base hover:shadow-lg shadow-yellow-300
+         hover:bg-yellow-600 duration-500
+         font-bold rounded-full">contact us <i
+                class="ti ti-phone-call inline-block text-xl animate-bounce"></i></button>
+          </div>
+        </div>
+
+
+        <div class="flex min-w-full  items-center h-[70vh] pb-32">
+          <div class="w-1/2 pr-8">
+            <img class="w-[600px] h-80 border-2 justify-start border-yellow-500 rounded-4xl object-cover"
+              src="images/gallery6.jpeg" alt="">
+          </div>
+          <div class="w-1/2 pl-8">
+            <h2 class="text-4xl font-bold text-white py-4">Perfect Taste</h2>
+            <p class="text-base font-medium text-gray-100 text-justify pb-4">Lorem ipsum, dolor sit amet consectetur
+              adipisicing elit. Quae obcaecati ea maxime esse suscipit at veritatis corporis, est dicta repellat
+              cupiditate. Cupiditate corrupti illum, necessitatibus saepe non ab placeat fugiat?</p>
+            <p class="text-base font-medium text-gray-100 text-justify">Lorem ipsum, dolor sit amet consectetur
+              adipisicing
+              elit. Quae obcaecati ea maxime esse suscipit at veritatis corporis, est dicta repellat
+              cupiditate. Cupiditate corrupti illum, necessitatibus saepe non ab placeat fugiat?</p>
+            <button class="uppercase mt-4 text-white bg-yellow-500 px-6 cursor-pointer py-2.5 text-base hover:shadow-lg shadow-yellow-300
+         hover:bg-yellow-600 duration-500
+         font-bold rounded-full">contact us <i
+                class="ti ti-phone-call inline-block text-xl animate-bounce"></i></button>
+          </div>
+        </div>
       </div>
     </div>
-    <!--
-    <div class="flex gap-8 ">
-      <div class="w-1/2">
-        <img class="w-[600px] h-80 border-2 justify-start border-yellow-500 rounded-4xl object-cover"
-          src="images/gallery2.jpeg" alt="">
-      </div>
-      <div class="w-1/2">
-        <h2 class="text-4xl font-bold text-white py-4">Delicious Dishes</h2>
-        <p class="text-base font-medium text-gray-100 text-justify pb-4">Lorem ipsum, dolor sit amet consectetur
-          adipisicing elit. Quae obcaecati ea maxime esse suscipit at veritatis corporis, est dicta repellat
-          cupiditate. Cupiditate corrupti illum, necessitatibus saepe non ab placeat fugiat?</p>
-        <p class="text-base font-medium text-gray-100 text-justify">Lorem ipsum, dolor sit amet consectetur adipisicing
-          elit. Quae obcaecati ea maxime esse suscipit at veritatis corporis, est dicta repellat
-          cupiditate. Cupiditate corrupti illum, necessitatibus saepe non ab placeat fugiat?</p>
-        <button class="uppercase mt-4 text-white bg-yellow-500 px-6 cursor-pointer py-2.5 text-base hover:shadow-lg shadow-yellow-300
-         hover:bg-yellow-600 duration-500
-         font-bold rounded-full">contact us <i
-            class="ti ti-phone-call inline-block text-xl animate-bounce"></i></button>
-      </div>
-    </div>  -->
-
-    <!--
-    <div class="flex gap-8">
-      <div class="w-1/2">
-        <img class="w-[600px] h-80 border-2 justify-start border-yellow-500 rounded-4xl object-cover"
-          src="images/gallery3.jpeg" alt="">
-      </div>
-      <div class="w-1/2">
-        <h2 class="text-4xl font-bold text-white py-4">Amazing Experience</h2>
-        <p class="text-base font-medium text-gray-100 text-justify pb-4">Lorem ipsum, dolor sit amet consectetur
-          adipisicing elit. Quae obcaecati ea maxime esse suscipit at veritatis corporis, est dicta repellat
-          cupiditate. Cupiditate corrupti illum, necessitatibus saepe non ab placeat fugiat?</p>
-        <p class="text-base font-medium text-gray-100 text-justify">Lorem ipsum, dolor sit amet consectetur adipisicing
-          elit. Quae obcaecati ea maxime esse suscipit at veritatis corporis, est dicta repellat
-          cupiditate. Cupiditate corrupti illum, necessitatibus saepe non ab placeat fugiat?</p>
-        <button class="uppercase mt-4 text-white bg-yellow-500 px-6 cursor-pointer py-2.5 text-base hover:shadow-lg shadow-yellow-300
-         hover:bg-yellow-600 duration-500
-         font-bold rounded-full">contact us <i
-            class="ti ti-phone-call inline-block text-xl animate-bounce"></i></button>
-      </div>
-    </div> -->
-    <!--
-    <div class="flex gap-8">
-      <div class="w-1/2">
-        <img class="w-[600px] h-80 border-2 justify-start border-yellow-500 rounded-4xl object-cover"
-          src="images/gallery4.jpeg" alt="">
-      </div>
-      <div class="w-1/2">
-        <h2 class="text-4xl font-bold text-white py-4">Fresh Ingredients</h2>
-        <p class="text-base font-medium text-gray-100 text-justify pb-4">Lorem ipsum, dolor sit amet consectetur
-          adipisicing elit. Quae obcaecati ea maxime esse suscipit at veritatis corporis, est dicta repellat
-          cupiditate. Cupiditate corrupti illum, necessitatibus saepe non ab placeat fugiat?</p>
-        <p class="text-base font-medium text-gray-100 text-justify">Lorem ipsum, dolor sit amet consectetur adipisicing
-          elit. Quae obcaecati ea maxime esse suscipit at veritatis corporis, est dicta repellat
-          cupiditate. Cupiditate corrupti illum, necessitatibus saepe non ab placeat fugiat?</p>
-        <button class="uppercase mt-4 text-white bg-yellow-500 px-6 cursor-pointer py-2.5 text-base hover:shadow-lg shadow-yellow-300
-         hover:bg-yellow-600 duration-500
-         font-bold rounded-full">contact us <i class="ti ti-phone-call inline-block text-xl animate-bounce"></i></button>
-      </div>
-    </div> -->
-
-    <!--
-    <div class="flex gap-8">
-      <div class="w-1/2">
-        <img class="w-[600px] h-80 border-2 justify-start border-yellow-500 rounded-4xl object-cover"
-          src="images/gallery5.jpeg" alt="">
-      </div>
-      <div class="w-1/2">
-        <h2 class="text-4xl font-bold text-white py-4">Culinary Art</h2>
-        <p class="text-base font-medium text-gray-100 text-justify pb-4">Lorem ipsum, dolor sit amet consectetur
-          adipisicing elit. Quae obcaecati ea maxime esse suscipit at veritatis corporis, est dicta repellat
-          cupiditate. Cupiditate corrupti illum, necessitatibus saepe non ab placeat fugiat?</p>
-        <p class="text-base font-medium text-gray-100 text-justify">Lorem ipsum, dolor sit amet consectetur adipisicing
-          elit. Quae obcaecati ea maxime esse suscipit at veritatis corporis, est dicta repellat
-          cupiditate. Cupiditate corrupti illum, necessitatibus saepe non ab placeat fugiat?</p>
-        <button class="uppercase mt-4 text-white bg-yellow-500 px-6 cursor-pointer py-2.5 text-base hover:shadow-lg shadow-yellow-300
-         hover:bg-yellow-600 duration-500
-         font-bold rounded-full">contact us <i class="ti ti-phone-call inline-block text-xl animate-bounce"></i></button>
-      </div>
-    </div> -->
-
-    <!--
-    <div class="flex gap-8">
-      <div class="w-1/2">
-        <img class="w-[600px] h-80 border-2 justify-start border-yellow-500 rounded-4xl object-cover"
-          src="images/gallery6.jpeg" alt="">
-      </div>
-      <div class="w-1/2">
-        <h2 class="text-4xl font-bold text-white py-4">Perfect Taste</h2>
-        <p class="text-base font-medium text-gray-100 text-justify pb-4">Lorem ipsum, dolor sit amet consectetur
-          adipisicing elit. Quae obcaecati ea maxime esse suscipit at veritatis corporis, est dicta repellat
-          cupiditate. Cupiditate corrupti illum, necessitatibus saepe non ab placeat fugiat?</p>
-        <p class="text-base font-medium text-gray-100 text-justify">Lorem ipsum, dolor sit amet consectetur adipisicing
-          elit. Quae obcaecati ea maxime esse suscipit at veritatis corporis, est dicta repellat
-          cupiditate. Cupiditate corrupti illum, necessitatibus saepe non ab placeat fugiat?</p>
-        <button class="uppercase mt-4 text-white bg-yellow-500 px-6 cursor-pointer py-2.5 text-base hover:shadow-lg shadow-yellow-300
-         hover:bg-yellow-600 duration-500
-         font-bold rounded-full">contact us <i class="ti ti-phone-call inline-block text-xl animate-bounce"></i></button>
-      </div>
-    </div> -->
-
   </div>
   <!--/ Gallery -->
 
@@ -619,6 +635,31 @@
   </div>
   <!-- /Footer -->
 
+  <!-- Modal -->
+  <div id="modal"
+    class="fixed top-0 left-0 w-full h-full bg-black/50 backdrop-blur-md flex invisible opacity-0 items-center justify-center flex-col transition-all duration-500 z-50">
+
+    <div class="relative bg-white p-8 rounded-lg shadow-lg text-center w-full max-w-md mx-4">
+      <button id="modalClose" class="absolute top-4 right-4 text-3xl text-gray-500 hover:text-black cursor-pointer">
+        <i class="ti ti-x"></i> </button>
+
+      <h2 class="text-3xl uppercase font-bold mb-5">Contact Us!</h2>
+
+      <input
+        class="w-full border-2 mb-3 py-2 px-5 rounded-full focus:outline-none focus:border-yellow-500 transition duration-300"
+        type="text" placeholder="Name" />
+
+      <input
+        class="w-full border-2 mb-3 py-2 px-5 rounded-full focus:outline-none focus:border-yellow-500 transition duration-300"
+        type="tel" placeholder="Phone" />
+
+      <button type="submit" class="w-full bg-yellow-500 text-white cursor-pointer px-4 py-2 md:py-3 rounded-full uppercase font-bold hover:bg-yellow-600
+      transition duration-300 ease-in-out flex items-center justify-center gap-2 shadow-lg hover:shadow-yellow-500">
+        Contact Us
+        <i class="ti ti-phone-call text-xl animate-bounce"></i></button>
+    </div>
+  </div>
+  <!-- /Modal -->
 
 
 </body>
